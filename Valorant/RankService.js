@@ -5,7 +5,7 @@ class Rank{
     //https://api.kyroskoh.xyz/valorant/v1/mmr/ap/belles/huats?show=combo&display=1
     // https://api.kyroskoh.xyz/valorant/v1/mmr/[region]/[ID]/[Tag]
 
-    async getRank(msg){
+    async getRankValorant(msg){
         const url = 'https://api.kyroskoh.xyz/valorant/v1/mmr';
         const showId = '?show=combo&display=1';
 

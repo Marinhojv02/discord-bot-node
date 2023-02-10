@@ -4,7 +4,8 @@ const { Client, GatewayIntentBits, Partials } = require('discord.js');
 const Discord = require('discord.js'); //import discord.js
 const axios = require('axios'); //import axios
 const { handleDice } = require('./Functions/Dice');
-const { getRank } = require('./Valorant/RankService');
+const { getRankValorant } = require('./Valorant/RankService');
+const { getRankLol } = require('./Lol/RankService');
 
 
 const client = new Discord.Client({
@@ -36,12 +37,16 @@ client.on('message', async (msg) => {
     if (!msg.content.startsWith(process.env.PREFIX)){ //verifica se o prefixo do bot é utilizado
       return;
     }
+
     //funcionalidades
     if (msg.content.startsWith(`!roll dice`)){//gira um dado
       handleDice(msg)
     }
     if (msg.content.startsWith('!valorant rank')){
-      getRank(msg)
+      getRankValorant(msg)
+    }
+    if (msg.content.startsWith('!lol rank')){
+      getRankLol(msg)
     }
 })
 
